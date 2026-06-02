@@ -34,6 +34,7 @@ def test_load_cria_arquivo_parquet(tmp_path: Path, sample_excel: Path) -> None:
 
     # Sobrescreve BRONZE_DIR temporariamente para o teste
     import local_medallion_pipeline.extract.raw_to_bronze as module
+
     original = module.BRONZE_DIR
     module.BRONZE_DIR = tmp_path
     try:
@@ -49,6 +50,7 @@ def test_load_parquet_conteudo_correto(tmp_path: Path, sample_excel: Path) -> No
     df = extract(sample_excel)
 
     import local_medallion_pipeline.extract.raw_to_bronze as module
+
     original = module.BRONZE_DIR
     module.BRONZE_DIR = tmp_path
     try:
