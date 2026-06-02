@@ -1,0 +1,24 @@
+# Ambiente virtual
+.venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dados (não versionar arquivos de dados)
+data/
+
+# Variáveis de ambiente
+.env
+
+# Ruff
+.ruff_cache/
+
+# Pytest
+.pytest_cache/
+
+# Distribuição / build
+dist/
+*.egg-info/
