@@ -6,8 +6,10 @@ authors = [
     {name = "Marcelo-Kimura-Data",email = "marcelo.kimura.data@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
+    "pandas (>=3.0.3,<4.0.0)",
+    "pyarrow (>=24.0.0,<25.0.0)"
 ]
 
 [tool.poetry]
@@ -16,3 +18,9 @@ packages = [{include = "local_medallion_pipeline", from = "src"}]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)",
+    "ruff (>=0.15.15,<0.16.0)"
+]
