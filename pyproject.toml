@@ -24,7 +24,9 @@ build-backend = "poetry.core.masonry.api"
 dev = [
     "pytest (>=9.0.3,<10.0.0)",
     "ruff (>=0.15.15,<0.16.0)",
-    "taskipy (>=1.14.1,<2.0.0)"
+    "taskipy (>=1.14.1,<2.0.0)",
+    "nbconvert (>=7.0.0)",
+    "ipykernel (>=6.0.0)"
 ]
 
 [tool.taskipy.tasks]
