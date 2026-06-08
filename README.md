@@ -26,9 +26,9 @@ local-medallion-pipeline/
 │   └── gold/
 ├── src/local_medallion_pipeline/
 │   └── extract/
-│       ├── raw_to_bronze.py
-│       ├── bronze_to_silver.py
-│       └── silver_to_gold.py
+│       ├── bronze.py
+│       ├── silver.py
+│       └── gold.py
 ├── tests/
 │   └── test_raw_to_bronze.py
 └── pyproject.toml
@@ -43,7 +43,7 @@ poetry install
 
 Executar a etapa Raw → Bronze:
 ```bash
-poetry run python src/local_medallion_pipeline/extract/raw_to_bronze.py
+poetry run python src/local_medallion_pipeline/extract/bronze.py
 ```
 
 Rodar os testes:
