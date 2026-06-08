@@ -24,13 +24,20 @@ local-medallion-pipeline/
 │   ├── bronze/
 │   ├── silver/
 │   └── gold/
+├── jupyter/
+│   ├── read_bronze.ipynb
+│   ├── read_silver.ipynb
+│   └── read_gold.ipynb
 ├── src/local_medallion_pipeline/
+│   ├── main.py
 │   └── extract/
-│       ├── raw_to_bronze.py
-│       ├── bronze_to_silver.py
-│       └── silver_to_gold.py
+│       ├── bronze.py
+│       ├── silver.py
+│       └── gold.py
 ├── tests/
-│   └── test_raw_to_bronze.py
+│   ├── test_bronze.py
+│   ├── test_silver.py
+│   └── test_gold.py
 └── pyproject.toml
 ```
 
@@ -41,9 +48,16 @@ Instalar dependências:
 poetry install
 ```
 
-Executar a etapa Raw → Bronze:
+Executar o pipeline completo:
 ```bash
-poetry run python src/local_medallion_pipeline/extract/raw_to_bronze.py
+poetry run python src/local_medallion_pipeline/main.py
+```
+
+Ou executar cada etapa individualmente:
+```bash
+poetry run python src/local_medallion_pipeline/extract/bronze.py
+poetry run python src/local_medallion_pipeline/extract/silver.py
+poetry run python src/local_medallion_pipeline/extract/gold.py
 ```
 
 Rodar os testes:
@@ -62,5 +76,5 @@ poetry run task format
 | Etapa | Status |
 |---|---|
 | Raw → Bronze | Concluido |
-| Bronze → Silver | Em desenvolvimento |
-| Silver → Gold | Em desenvolvimento |
+| Bronze → Silver | Concluido |
+| Silver → Gold | Concluido |

@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from local_medallion_pipeline.extract.raw_to_bronze import extract, load
+from local_medallion_pipeline.extract.bronze import extract, load
 
 
 @pytest.fixture
@@ -33,7 +33,7 @@ def test_load_cria_arquivo_parquet(tmp_path: Path, sample_excel: Path) -> None:
     df = extract(sample_excel)
 
     # Sobrescreve BRONZE_DIR temporariamente para o teste
-    import local_medallion_pipeline.extract.raw_to_bronze as module
+    import local_medallion_pipeline.extract.bronze as module
 
     original = module.BRONZE_DIR
     module.BRONZE_DIR = tmp_path
@@ -49,7 +49,7 @@ def test_load_cria_arquivo_parquet(tmp_path: Path, sample_excel: Path) -> None:
 def test_load_parquet_conteudo_correto(tmp_path: Path, sample_excel: Path) -> None:
     df = extract(sample_excel)
 
-    import local_medallion_pipeline.extract.raw_to_bronze as module
+    import local_medallion_pipeline.extract.bronze as module
 
     original = module.BRONZE_DIR
     module.BRONZE_DIR = tmp_path
@@ -59,5 +59,8 @@ def test_load_parquet_conteudo_correto(tmp_path: Path, sample_excel: Path) -> No
         module.BRONZE_DIR = original
 
     resultado = pd.read_parquet(tmp_path / "vendas.parquet")
-    assert list(resultado.columns) == ["produto", "valor"]
+    assert "produto" in resultado.columns
+    assert "valor" in resultado.columns
+    assert "data_ingestao" in resultado.columns
+    assert "origem" in resultado.columns
     assert len(resultado) == 2
