@@ -7,8 +7,6 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Dados (não versionar arquivos de dados)
-data/
 
 # Variáveis de ambiente
 .env
