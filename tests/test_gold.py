@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from local_medallion_pipeline.extract.gold import (
+from local_medallion_pipeline.layers.gold import (
     transform_devolucoes_por_motivo,
     transform_fato_vendas,
     transform_vendas_por_loja,

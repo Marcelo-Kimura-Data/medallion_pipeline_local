@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from local_medallion_pipeline.extract.bronze import extract, load
+from local_medallion_pipeline.layers.bronze import extract, load
 
 
 @pytest.fixture
@@ -33,7 +33,7 @@ def test_load_cria_arquivo_parquet(tmp_path: Path, sample_excel: Path) -> None:
     df = extract(sample_excel)
 
     # Sobrescreve BRONZE_DIR temporariamente para o teste
-    import local_medallion_pipeline.extract.bronze as module
+    import local_medallion_pipeline.layers.bronze as module
 
     original = module.BRONZE_DIR
     module.BRONZE_DIR = tmp_path
@@ -49,7 +49,7 @@ def test_load_cria_arquivo_parquet(tmp_path: Path, sample_excel: Path) -> None:
 def test_load_parquet_conteudo_correto(tmp_path: Path, sample_excel: Path) -> None:
     df = extract(sample_excel)
 
-    import local_medallion_pipeline.extract.bronze as module
+    import local_medallion_pipeline.layers.bronze as module
 
     original = module.BRONZE_DIR
     module.BRONZE_DIR = tmp_path
