@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from local_medallion_pipeline.extract.silver import (
+from local_medallion_pipeline.layers.silver import (
     transform_clientes,
     transform_devolucoes,
     transform_lojas,
