@@ -30,7 +30,7 @@ local-medallion-pipeline/
 │   └── read_gold.ipynb
 ├── src/local_medallion_pipeline/
 │   ├── main.py
-│   └── extract/
+│   └── layers/
 │       ├── bronze.py
 │       ├── silver.py
 │       └── gold.py
@@ -51,6 +51,7 @@ poetry install
 Executar o pipeline completo:
 ```bash
 poetry run python src/local_medallion_pipeline/main.py
+poetry run run-pipeline
 ```
 
 Ou executar cada etapa individualmente:
@@ -70,6 +71,7 @@ Lint e formatação:
 poetry run task lint
 poetry run task format
 ```
+
 
 ## Status
 
