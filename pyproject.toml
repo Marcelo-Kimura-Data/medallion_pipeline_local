@@ -33,7 +33,8 @@ dev = [
 lint = "ruff check --select I . && ruff format . --check"
 format = "ruff format . && ruff check --select I --fix ."
 
-
+[project.scripts]
+run-pipeline = "local_medallion_pipeline.main:main"
 
 
 
